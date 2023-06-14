@@ -20,7 +20,7 @@ apiKey = "your_key"
 
 这一部分代码可以在本地运行，然后通过nginx部署到服务器上。
 
-chat.html
+web-socket-send.js
 
 ```
 原代码
