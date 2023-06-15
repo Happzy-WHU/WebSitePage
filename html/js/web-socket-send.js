@@ -7,7 +7,8 @@ function webSocketSend() {
         if (event.data === '@@@end@@@') {
           socket.close();
         } else {
-          msg += event.data
+          thisData = event.data.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+          msg += thisData
           ModifyHTML('.lite-chatbox', msg);
         }
     });
@@ -21,7 +22,7 @@ function webSocketSend() {
         console.log('WebSocket错误:', event);
     });
 
-    let sendMgs = document.querySelector('.chatinput').innerHTML.replace(/<div>/g, '\n').replace(/<\/div>/g, '')
+    let sendMgs = document.querySelector('.chatinput').innerHTML.replace(/<div>/g, '\n').replace(/<\/div>/g, '').replace(/<br>/g, "\n");
     // 向服务器发送消息
     const msgData = {
         "prompt": sendMgs,

@@ -28,14 +28,14 @@ document.querySelector('.send').onclick = function () {
         });
 
 
-        if (botName == "gpt-4"){
+        if (botName == "gpt-4" && convo_id[0] != "F"){
             convo_id = "F"+convo_id;
             botimg = "images/logo_black.png"
-        }else{
+        }else if(botName == "gpt-3.5" && convo_id[0] != "T"){
             convo_id = "T"+convo_id;
             botimg = "images/logo_green.png"
         }
-
+        
         htmls.push({
             messageType: 'raw',
             headIcon: botimg,
